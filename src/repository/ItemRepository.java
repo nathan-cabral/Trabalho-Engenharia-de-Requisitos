@@ -17,4 +17,13 @@ public class ItemRepository {
         return itens;
     }
 
+    public Item buscarPorCodigo(String codigo){
+        for (Item item : itens) {
+            if (item.getCodigo().equalsIgnoreCase(codigo)) {
+                return item;
+            }
+        }
+        return null;
+    }
+
 }

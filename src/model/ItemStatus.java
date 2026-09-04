@@ -1,4 +1,8 @@
 package model;
 
-public class ItemStatus {
+public enum ItemStatus {
+    ENCONTRADO,
+    DEVOLUCAO_SOLICITADA,
+    DEVOLUCAO_RECUSADA,
+    DEVOLVIDO
 }

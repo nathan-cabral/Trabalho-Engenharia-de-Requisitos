@@ -21,26 +21,27 @@ public class Menu {
 
         while (executando) {
 
-            System.out.println("===== ACHADOS E PERDIDOS =====");
-            System.out.println("1 - Cadastrar item");
-            System.out.println("2 - Listar itens");
-            System.out.println("3 - Sair");
-            System.out.print("Escolha uma opção: ");
+            System.out.println("\n=========== CAMPUS HUB ===========");
+            System.out.println("1 - Área Cliente");
+            System.out.println("2 - Área Administrativa");
+            System.out.println("0 - Sair");
+
+            System.out.print("\nEscolha uma opção: ");
 
             int opcao = scanner.nextInt();
 
             switch (opcao) {
 
                 case 1:
-                    cadastrarItem(scanner);
+                    areaCliente(scanner);
                     break;
 
                 case 2:
-                    listarItens();
+                    System.out.println("Área administrativa ainda será implementada.");
                     break;
 
-                case 3:
-                    System.out.println("Saindo...");
+                case 0:
+                    System.out.println("Encerrando sistema...");
                     executando = false;
                     break;
 
@@ -89,6 +90,64 @@ public class Menu {
 
         for (Item item : itens) {
             System.out.println(item);
+        }
+    }
+
+    private void buscarObjeto(Scanner scanner) {
+
+        scanner.nextLine();
+
+        System.out.print("Digite o código do objeto: ");
+        String codigo = scanner.nextLine();
+
+        Item item = service.buscarPorCodigo(codigo);
+
+        if (item != null) {
+            System.out.println(item);
+        } else {
+            System.out.println("Objeto não encontrado.");
+        }
+    }
+
+    private void areaCliente(Scanner scanner) {
+
+        boolean executando = true;
+
+        while (executando) {
+
+            System.out.println("\n=========== ÁREA CLIENTE ===========");
+            System.out.println("1 - Registrar objeto encontrado");
+            System.out.println("2 - Buscar objeto");
+            System.out.println("3 - Solicitar devolução");
+            System.out.println("0 - Voltar");
+
+            System.out.print("\nEscolha uma opção: ");
+
+            int opcao = scanner.nextInt();
+
+            switch (opcao) {
+
+                case 1:
+                    cadastrarItem(scanner);
+                    break;
+
+                case 2:
+                    buscarObjeto(scanner);
+                    break;
+
+                case 3:
+                    System.out.println("Solicitação de devolução ainda será implementada.");
+                    break;
+
+                case 0:
+                    executando = false;
+                    System.out.println("Voltando ao menu principal...");
+                    break;
+
+                default:
+                    System.out.println("Opção inválida!");
+                    break;
+            }
         }
     }
 
