@@ -4,6 +4,7 @@ import repository.ItemRepository;
 import java.util.List;
 import service.ItemService;
 import view.Menu;
+import service.AdminService;
 
 public class Main {
 
@@ -13,7 +14,9 @@ public class Main {
 
         ItemService service = new ItemService(repository);
 
-        Menu menu = new Menu(service);
+        AdminService adminService = new AdminService();
+
+        Menu menu = new Menu(service, adminService);
 
         menu.iniciar();
 

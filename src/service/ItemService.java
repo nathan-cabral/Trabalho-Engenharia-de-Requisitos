@@ -45,5 +45,9 @@ public class ItemService {
         return true;
     }
 
+    public List<Item> buscar(String termo) {
+        return repository.buscar(termo);
+    }
+
 
 }

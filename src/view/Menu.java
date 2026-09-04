@@ -1,17 +1,23 @@
 package view;
 import model.Item;
+import service.AdminService;
 import service.ItemService;
 
 import java.time.LocalDate;
 import java.util.Scanner;
 import java.util.List;
+import service.AdminService;
 
 public class Menu {
     private ItemService service;
 
-    public Menu(ItemService service){
-        this.service=service;
+    public Menu(ItemService service, AdminService adminService) {
+        this.service = service;
+        this.adminService = adminService;
     }
+
+    private AdminService adminService;
+
 
     public void iniciar() {
 
@@ -37,7 +43,7 @@ public class Menu {
                     break;
 
                 case 2:
-                    System.out.println("Área administrativa ainda será implementada.");
+                    areaAdministrativa(scanner);
                     break;
 
                 case 0:
@@ -51,6 +57,31 @@ public class Menu {
             }
         }
     }
+    private void areaAdministrativa(Scanner scanner) {
+
+        scanner.nextLine();
+
+        System.out.println("\n=========== ÁREA ADMINISTRATIVA ===========");
+
+        System.out.print("ID: ");
+        String id = scanner.nextLine();
+
+        System.out.print("Senha: ");
+        String senha = scanner.nextLine();
+
+        boolean autenticado = adminService.autenticar(id, senha);
+
+        if (autenticado) {
+
+            System.out.println("\nLogin realizado com sucesso!");
+
+        } else {
+
+            System.out.println("\nID ou senha incorretos.");
+
+        }
+    }
+
 
     private void cadastrarItem(Scanner scanner) {
         scanner.nextLine();
@@ -99,15 +130,23 @@ public class Menu {
 
         scanner.nextLine();
 
-        System.out.print("Digite o código do objeto: ");
-        String codigo = scanner.nextLine();
+        System.out.print("Digite o nome, código, marca, cor ou local do objeto: ");
+        String termo = scanner.nextLine();
 
-        Item item = service.buscarPorCodigo(codigo);
+        List<Item> resultados = service.buscar(termo);
 
-        if (item != null) {
-            System.out.println(item);
+        if (resultados.isEmpty()) {
+
+            System.out.println("Nenhum objeto encontrado.");
+
         } else {
-            System.out.println("Objeto não encontrado.");
+
+            System.out.println("\n=========== RESULTADOS DA BUSCA ===========");
+
+            for (Item item : resultados) {
+                System.out.println(item);
+                System.out.println("-----------------------------------");
+            }
         }
     }
 
