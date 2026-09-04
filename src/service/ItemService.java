@@ -2,6 +2,7 @@ package service;
 import model.Item;
 import repository.ItemRepository;
 import java.util.List;
+import model.StatusItem;
 
 public class ItemService {
 
@@ -25,6 +26,23 @@ public class ItemService {
 
     public Item buscarPorCodigo(String codigo) {
         return repository.buscarPorCodigo(codigo);
+    }
+
+    public boolean solicitarDevolucao(String codigo) {
+
+        Item item = repository.buscarPorCodigo(codigo);
+
+        if (item == null) {
+            return false;
+        }
+
+        if (item.getStatus() != StatusItem.ENCONTRADO) {
+            return false;
+        }
+
+        item.setStatus(StatusItem.DEVOLUCAO_SOLICITADA);
+
+        return true;
     }
 
 

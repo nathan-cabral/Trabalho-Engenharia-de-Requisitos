@@ -109,6 +109,22 @@ public class Menu {
         }
     }
 
+    private void solicitarDevolucao(Scanner scanner) {
+
+        scanner.nextLine();
+
+        System.out.print("Digite o código do objeto: ");
+        String codigo = scanner.nextLine();
+
+        boolean sucesso = service.solicitarDevolucao(codigo);
+
+        if (sucesso) {
+            System.out.println("Solicitação de devolução realizada com sucesso!");
+        } else {
+            System.out.println("Não foi possível realizar a solicitação.");
+        }
+    }
+
     private void areaCliente(Scanner scanner) {
 
         boolean executando = true;

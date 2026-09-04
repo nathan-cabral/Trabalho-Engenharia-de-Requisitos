@@ -1,6 +1,6 @@
 package model;
 
-public enum ItemStatus {
+public enum StatusItem {
     ENCONTRADO,
     DEVOLUCAO_SOLICITADA,
     DEVOLUCAO_RECUSADA,

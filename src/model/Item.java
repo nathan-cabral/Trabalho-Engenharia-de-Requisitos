@@ -9,7 +9,7 @@ public class Item {
     private String cor;
     private String local;
     private LocalDate data;
-    private ItemStatus status;
+    private StatusItem status;
     private String codigo;
 
     public Item(String nome,String categoria, String marca,
@@ -20,7 +20,7 @@ public class Item {
         this.cor=cor;
         this.local=local;
         this.data=data;
-        this.status=ItemStatus.ENCONTRADO;
+        this.status= StatusItem.ENCONTRADO;
     }
 
     public String getNome(){
@@ -31,7 +31,7 @@ public class Item {
         return categoria;
     }
 
-    public ItemStatus getStatus(){
+    public StatusItem getStatus(){
         return status;
     }
 
@@ -43,6 +43,10 @@ public class Item {
         return codigo;
     }
 
+
+    public void setStatus(StatusItem status) {
+        this.status = status;
+    }
 
 
     @Override
