@@ -25,5 +25,29 @@ public class ItemRepository {
         }
         return null;
     }
+    public List<Item> buscar(String termo) {
+
+        List<Item> resultados = new ArrayList<>();
+
+        termo = termo.toLowerCase();
+
+        for (Item item : itens) {
+
+            if (
+                    item.getCodigo().toLowerCase().contains(termo) ||
+                            item.getNome().toLowerCase().contains(termo) ||
+                            item.getCategoria().toLowerCase().contains(termo) ||
+                            item.getMarca().toLowerCase().contains(termo) ||
+                            item.getCor().toLowerCase().contains(termo) ||
+                            item.getNome().toLowerCase().contains(termo) ||
+                            item.getLocal().toLowerCase().contains(termo)
+            ) {
+
+                resultados.add(item);
+            }
+        }
+
+        return resultados;
+    }
 
 }

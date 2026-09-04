@@ -43,6 +43,17 @@ public class Item {
         return codigo;
     }
 
+    public String getMarca(){
+        return marca;
+    }
+
+    public String getCor(){
+        return cor;
+    }
+
+    public String getLocal(){
+        return local;
+    }
 
     public void setStatus(StatusItem status) {
         this.status = status;

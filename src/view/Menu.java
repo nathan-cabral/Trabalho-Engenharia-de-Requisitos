@@ -82,7 +82,9 @@ public class Menu {
 
         service.cadastrarItem(item);
 
-        System.out.println("Item cadastrado com sucesso!");
+        System.out.println("\nObjeto registrado com sucesso!");
+        System.out.println("Código do objeto: " + item.getCodigo());
+        System.out.println("Status: " + item.getStatus());
     }
     private void listarItens() {
 
@@ -152,7 +154,7 @@ public class Menu {
                     break;
 
                 case 3:
-                    System.out.println("Solicitação de devolução ainda será implementada.");
+                    solicitarDevolucao(scanner);
                     break;
 
                 case 0:
