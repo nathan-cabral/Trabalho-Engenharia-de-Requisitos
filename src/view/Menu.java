@@ -105,7 +105,7 @@ public class Menu {
             switch (opcao) {
 
                 case 1:
-                    System.out.println("Função ainda será implementada.");
+                    verSolicitacoesPendentes();
                     break;
 
                 case 2:
@@ -254,6 +254,26 @@ public class Menu {
                 default:
                     System.out.println("Opção inválida!");
                     break;
+            }
+        }
+    }
+
+    private void verSolicitacoesPendentes() {
+
+        List<Item> solicitacoes = service.listarSolicitacoesPendentes();
+
+        if (solicitacoes.isEmpty()) {
+
+            System.out.println("Não existem solicitações pendentes.");
+
+        } else {
+
+            System.out.println("\n=========== SOLICITAÇÕES PENDENTES ===========");
+
+            for (Item item : solicitacoes) {
+
+                System.out.println(item);
+                System.out.println("-----------------------------------");
             }
         }
     }
