@@ -53,6 +53,23 @@ public class ItemService {
         return repository.listarSolicitacoesPendentes();
     }
 
+    public boolean aprovarDevolucao(String codigo) {
+
+        Item item = repository.buscarPorCodigo(codigo);
+
+        if (item == null) {
+            return false;
+        }
+
+        if (item.getStatus() != StatusItem.DEVOLUCAO_SOLICITADA) {
+            return false;
+        }
+
+        item.setStatus(StatusItem.DEVOLVIDO);
+
+        return true;
+    }
+
 
 
 }

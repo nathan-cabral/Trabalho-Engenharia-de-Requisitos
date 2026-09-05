@@ -109,7 +109,7 @@ public class Menu {
                     break;
 
                 case 2:
-                    System.out.println("Função ainda será implementada.");
+                    aprovarDevolucao(scanner);
                     break;
 
                 case 3:
@@ -278,4 +278,19 @@ public class Menu {
         }
     }
 
+    private void aprovarDevolucao(Scanner scanner) {
+
+        scanner.nextLine();
+
+        System.out.print("Digite o código do objeto: ");
+        String codigo = scanner.nextLine();
+
+        boolean sucesso = service.aprovarDevolucao(codigo);
+
+        if (sucesso) {
+            System.out.println("Devolução aprovada com sucesso!");
+        } else {
+            System.out.println("Não foi possível aprovar a devolução.");
+        }
+    }
 }
