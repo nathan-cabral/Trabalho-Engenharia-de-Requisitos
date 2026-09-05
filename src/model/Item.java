@@ -62,13 +62,19 @@ public class Item {
 
     @Override
     public String toString() {
-        return "Item{" +
-                "nome='" + nome + '\'' +
-                ", categoria='" + categoria + '\'' +
-                ", marca='" + marca + '\'' +
-                ", cor='" + cor + '\'' +
-                ", local='" + local + '\'' +
-                ", data=" + data +
-                '}';
+        return "========================================" +
+                "\n           OBJETO ENCONTRADO" +
+                "\n========================================" +
+                "\nCódigo: " + codigo +
+                "\nNome: " + nome +
+                "\nCategoria: " + categoria +
+                "\nMarca: " + marca +
+                "\nCor: " + cor +
+                "\nLocal: " + local +
+                "\nData: " + data +
+                "\nStatus: " + status +
+                "\n========================================";
     }
+
+
 }
