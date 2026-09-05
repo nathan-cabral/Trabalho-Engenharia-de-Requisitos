@@ -1,6 +1,7 @@
 package repository;
 
 import model.Item;
+import model.StatusItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,6 +49,21 @@ public class ItemRepository {
         }
 
         return resultados;
+    }
+
+    public List<Item> listarSolicitacoesPendentes() {
+
+        List<Item> solicitacoes = new ArrayList<>();
+
+        for (Item item : itens) {
+
+            if (item.getStatus() == StatusItem.DEVOLUCAO_SOLICITADA) {
+
+                solicitacoes.add(item);
+            }
+        }
+
+        return solicitacoes;
     }
 
 }

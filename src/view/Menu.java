@@ -75,10 +75,60 @@ public class Menu {
 
             System.out.println("\nLogin realizado com sucesso!");
 
+            painelAdministrativo(scanner);
+
         } else {
 
             System.out.println("\nID ou senha incorretos.");
 
+        }
+    }
+
+    private void painelAdministrativo(Scanner scanner) {
+
+        boolean executando = true;
+
+        while (executando) {
+
+            System.out.println("\n=========== PAINEL ADMINISTRATIVO ===========");
+
+            System.out.println("1 - Ver solicitações de devolução");
+            System.out.println("2 - Aprovar devolução");
+            System.out.println("3 - Recusar devolução");
+            System.out.println("4 - Listar objetos");
+            System.out.println("0 - Voltar");
+
+            System.out.print("\nEscolha uma opção: ");
+
+            int opcao = scanner.nextInt();
+
+            switch (opcao) {
+
+                case 1:
+                    System.out.println("Função ainda será implementada.");
+                    break;
+
+                case 2:
+                    System.out.println("Função ainda será implementada.");
+                    break;
+
+                case 3:
+                    System.out.println("Função ainda será implementada.");
+                    break;
+
+                case 4:
+                    System.out.println("Função ainda será implementada.");
+                    break;
+
+                case 0:
+                    executando = false;
+                    System.out.println("Saindo da área administrativa...");
+                    break;
+
+                default:
+                    System.out.println("Opção inválida.");
+                    break;
+            }
         }
     }
 
