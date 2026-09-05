@@ -48,6 +48,11 @@ public class ItemService {
     public List<Item> buscar(String termo) {
         return repository.buscar(termo);
     }
+    public List<Item> listarSolicitacoesPendentes() {
+
+        return repository.listarSolicitacoesPendentes();
+    }
+
 
 
 }
