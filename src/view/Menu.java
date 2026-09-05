@@ -117,7 +117,7 @@ public class Menu {
                     break;
 
                 case 4:
-                    System.out.println("Função ainda será implementada.");
+                    listarObjetos();
                     break;
 
                 case 0:
@@ -309,4 +309,25 @@ public class Menu {
             System.out.println("Não foi possível recusar a devolução.");
         }
     }
+
+    private void listarObjetos() {
+
+        List<Item> itens = service.listarTodos();
+
+        if (itens.isEmpty()) {
+
+            System.out.println("Não existem objetos cadastrados.");
+
+        } else {
+
+            System.out.println("\n=========== TODOS OS OBJETOS ===========");
+
+            for (Item item : itens) {
+
+                System.out.println(item);
+                System.out.println("-----------------------------------");
+            }
+        }
+    }
+
 }
