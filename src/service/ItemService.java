@@ -7,11 +7,12 @@ import model.StatusItem;
 public class ItemService {
 
     private ItemRepository repository;
-    private int proximoCodigo = 1;
 
     public ItemService(ItemRepository repository) {
         this.repository = repository;
     }
+
+    private int proximoCodigo = 1;
 
     public void cadastrarItem(Item item){
         String codigo = String.format("OB%03d", proximoCodigo);
@@ -66,6 +67,23 @@ public class ItemService {
         }
 
         item.setStatus(StatusItem.DEVOLVIDO);
+
+        return true;
+    }
+
+    public boolean recusarDevolucao(String codigo) {
+
+        Item item = repository.buscarPorCodigo(codigo);
+
+        if (item == null) {
+            return false;
+        }
+
+        if (item.getStatus() != StatusItem.DEVOLUCAO_SOLICITADA) {
+            return false;
+        }
+
+        item.setStatus(StatusItem.DEVOLUCAO_RECUSADA);
 
         return true;
     }

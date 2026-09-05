@@ -113,7 +113,7 @@ public class Menu {
                     break;
 
                 case 3:
-                    System.out.println("Função ainda será implementada.");
+                    recusarDevolucao(scanner);
                     break;
 
                 case 4:
@@ -291,6 +291,22 @@ public class Menu {
             System.out.println("Devolução aprovada com sucesso!");
         } else {
             System.out.println("Não foi possível aprovar a devolução.");
+        }
+    }
+
+    private void recusarDevolucao(Scanner scanner) {
+
+        scanner.nextLine();
+
+        System.out.print("Digite o código do objeto: ");
+        String codigo = scanner.nextLine();
+
+        boolean sucesso = service.recusarDevolucao(codigo);
+
+        if (sucesso) {
+            System.out.println("Devolução recusada com sucesso!");
+        } else {
+            System.out.println("Não foi possível recusar a devolução.");
         }
     }
 }

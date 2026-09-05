@@ -51,6 +51,9 @@ public class ItemRepository {
         return resultados;
     }
 
+
+
+
     public List<Item> listarSolicitacoesPendentes() {
 
         List<Item> solicitacoes = new ArrayList<>();
@@ -65,5 +68,4 @@ public class ItemRepository {
 
         return solicitacoes;
     }
-
 }
