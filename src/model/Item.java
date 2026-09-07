@@ -2,7 +2,7 @@ package model;
 import java.time.LocalDate;
 
 public class Item {
-
+    //INSERT INTO itens VALUES(nome,categoria,marca,cor...)
     private String nome;
     private String categoria;
     private String marca;
@@ -47,18 +47,13 @@ public class Item {
         return marca;
     }
 
-    public String getCor(){
-        return cor;
-    }
+    public String getCor(){return cor;}
 
-    public String getLocal(){
-        return local;
-    }
+    public String getLocal(){return local;}
 
     public void setStatus(StatusItem status) {
         this.status = status;
     }
-
 
     @Override
     public String toString() {
